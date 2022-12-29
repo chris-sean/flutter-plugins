@@ -89,7 +89,7 @@ FlutterWindow::FlutterWindow(
   scale_factor_ = dpi / 96.0;
 
   HWND window_handle = CreateWindowExW(
-      WS_EX_TOOLWINDOW,
+      WS_EX_PALETTEWINDOW,
       kFlutterWindowClassName, L"", WS_POPUP,
       Scale(target_point.x, scale_factor_), Scale(target_point.y, scale_factor_),
       Scale(1280, scale_factor_), Scale(720, scale_factor_),
