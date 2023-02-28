@@ -253,6 +253,12 @@ void WebView::Stop() {
   }
 }
 
+void WebView::openDevToolsWindow() {
+  if (webview_) {
+    webview_->OpenDevToolsWindow();
+  }
+}
+
 bool WebView::CanGoBack() const {
   if (webview_) {
     BOOL can_go_back;
@@ -297,7 +303,7 @@ void WebView::PostWebMessageAsString(const std::wstring &webmessage,
       webmessage.c_str()) == NOERROR) {
       completer->Success();
     } else {
-       completer->Error("0", "Error posting webmessage as String");
+      completer->Error("0", "Error posting webmessage as String");
     }
   } else {
     completer->Error("0", "webview not created");

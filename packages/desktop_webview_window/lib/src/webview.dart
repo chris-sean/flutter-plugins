@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/foundation.dart';
 
 /// Handle custom message from JavaScript in your app.
@@ -61,6 +59,9 @@ abstract class Webview {
   /// Stop all navigations and pending resource fetches.
   Future<void> stop();
 
+  /// Opens the Browser DevTools in a separate window
+  Future<void> openDevToolsWindow();
+
   /// Register a callback that will be invoked when the webview history changes.
   void setOnHistoryChangedCallback(OnHistoryChangedCallback? callback);
 
@@ -70,7 +71,8 @@ abstract class Webview {
 
   void addOnWebMessageReceivedCallback(OnWebMessageReceivedCallback callback);
 
-  void removeOnWebMessageReceivedCallback(OnWebMessageReceivedCallback callback);
+  void removeOnWebMessageReceivedCallback(
+      OnWebMessageReceivedCallback callback);
 
   /// Close the web view window.
   void close();
@@ -79,8 +81,8 @@ abstract class Webview {
   Future<String?> evaluateJavaScript(String javaScript);
 
   /// post a web message as String to the top level document in this WebView
-  Future<String?> postWebMessageAsString(String webMessage);
+  Future<void> postWebMessageAsString(String webMessage);
 
   /// post a web message as JSON to the top level document in this WebView
-  Future<String?> postWebMessageAsJson(String webMessage);
+  Future<void> postWebMessageAsJson(String webMessage);
 }
